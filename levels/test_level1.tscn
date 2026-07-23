@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bry7b01kqn8r7"]
+
+[ext_resource type="Script" uid="uid://cghm1wvsub12l" path="res://scripts/EnemySpawner.cs" id="1_1yxjr"]
+[ext_resource type="PackedScene" uid="uid://palnjnyyel2n" path="res://scenes/enemy.tscn" id="2_mypmm"]
+[ext_resource type="Script" uid="uid://dimricnb2jan2" path="res://levels/Path3d.cs" id="3_mypmm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ui2ko"]
+size = Vector3(1, 0.038085938, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwl83"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_1yxjr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.403423, -0.00032043457, -0.4218498, 0, 0, 0, 0, 0, 0, 0.251933, 0.00032913685, -0.42984533, 0, 0, 0, 0, 0, 0, 0.25100854, 0.0003336668, -0.144163, 0, 0, 0, 0, 0, 0, -0.043400526, -3.4689903e-05, -0.14042696, 0, 0, 0, 0, 0, 0, -0.05183384, -4.184246e-05, 0.07585231, 0, 0, 0, 0, 0, 0, 0.2629259, 0.00033783913, 0.08678542, 0, 0, 0, 0, 0, 0, 0.2507336, 0.0002439022, 0.3183728, 0, 0, 0, 0, 0, 0, -0.34848854, -0.00018548965, 0.31294405, 0, 0, 0, 0, 0, 0, -0.34940547, -0.0001603365, -0.19880866),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[node name="Node" type="Node" unique_id=859410211]
+
+[node name="EnemySpawner" type="Node" parent="." unique_id=1316386852 node_paths=PackedStringArray("_button", "_Path3DNode")]
+script = ExtResource("1_1yxjr")
+_button = NodePath("../Button")
+_Path3DNode = NodePath("../Path3D")
+_Enemy = ExtResource("2_mypmm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=311067057]
+mesh = SubResource("BoxMesh_ui2ko")
+surface_material_override/0 = SubResource("StandardMaterial3D_kwl83")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=253741219]
+transform = Transform3D(1, 0, 0, 0, 0.9029653, 0.42971346, 0, -0.42971346, 0.9029653, 0, 0.40969414, 0.77623534)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=737050948]
+transform = Transform3D(1, 0, 0, 0, 0.5619113, 0.82719755, 0, -0.82719755, 0.5619113, 0, 0.8111023, 0.81911814)
+
+[node name="Path3D" type="Path3D" parent="." unique_id=367987091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08886105, 0.0473184, 0.07733375)
+curve = SubResource("Curve3D_1yxjr")
+script = ExtResource("3_mypmm")
+
+[node name="Button" type="Button" parent="." unique_id=452410951]
+anchors_preset = -1
+anchor_left = 0.93100005
+anchor_top = 0.94400007
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.51208496
+offset_top = 0.28796387
+grow_horizontal = 0
+grow_vertical = 0
+action_mode = 0
+text = "Spawn"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="EnemySpawner" method="_on_button_pressed"]
