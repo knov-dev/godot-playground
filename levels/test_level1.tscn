@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://bry7b01kqn8r7"]
 
 [ext_resource type="Script" uid="uid://cghm1wvsub12l" path="res://scripts/EnemySpawner.cs" id="1_1yxjr"]
+[ext_resource type="Script" uid="uid://j5kcmwge7tao" path="res://resources/Wave.cs" id="2_x6sav"]
+[ext_resource type="Script" uid="uid://cjfvcgrcvnim6" path="res://resources/EnemySequence.cs" id="3_jhta0"]
 [ext_resource type="Script" uid="uid://dimricnb2jan2" path="res://levels/Path3d.cs" id="3_mypmm"]
+[ext_resource type="Resource" uid="uid://dglav8nbolcne" path="res://resources/Enemy1.tres" id="4_jhta0"]
+[ext_resource type="Resource" uid="uid://6w65ie0cywrt" path="res://resources/Enemy2.tres" id="5_m0b0e"]
+
+[sub_resource type="Resource" id="Resource_42wu5"]
+script = ExtResource("2_x6sav")
+_enemySequence = Array[ExtResource("3_jhta0")]([ExtResource("4_jhta0"), ExtResource("5_m0b0e")])
+metadata/_custom_type_script = "uid://j5kcmwge7tao"
 
 [sub_resource type="BoxMesh" id="BoxMesh_ui2ko"]
 size = Vector3(1, 0.038085938, 1)
@@ -18,9 +27,11 @@ point_count = 9
 
 [node name="Node" type="Node" unique_id=859410211]
 
-[node name="EnemySpawner" type="Node" parent="." unique_id=1316386852 node_paths=PackedStringArray("_button")]
+[node name="EnemySpawner" type="Node" parent="." unique_id=1316386852 node_paths=PackedStringArray("_button", "_path3DNode")]
 script = ExtResource("1_1yxjr")
 _button = NodePath("../Button")
+_path3DNode = NodePath("../Path3D")
+_enemyWaves = Array[ExtResource("2_x6sav")]([SubResource("Resource_42wu5")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=311067057]
 mesh = SubResource("BoxMesh_ui2ko")

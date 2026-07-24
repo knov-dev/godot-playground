@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemySequence" format=3 uid="uid://6w65ie0cywrt"]
+
+[ext_resource type="PackedScene" uid="uid://c5qo0ev3sdtnp" path="res://scenes/enemy2.tscn" id="1_plmhk"]
+[ext_resource type="Script" uid="uid://cjfvcgrcvnim6" path="res://resources/EnemySequence.cs" id="2_vtw4b"]
+
+[resource]
+script = ExtResource("2_vtw4b")
+_enemy = ExtResource("1_plmhk")
+_amount = 3
+_time = 2
