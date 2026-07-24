@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bry7b01kqn8r7"]
 
 [ext_resource type="Script" uid="uid://cghm1wvsub12l" path="res://scripts/EnemySpawner.cs" id="1_1yxjr"]
-[ext_resource type="PackedScene" uid="uid://palnjnyyel2n" path="res://scenes/enemy.tscn" id="2_mypmm"]
 [ext_resource type="Script" uid="uid://dimricnb2jan2" path="res://levels/Path3d.cs" id="3_mypmm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ui2ko"]
@@ -19,11 +18,9 @@ point_count = 9
 
 [node name="Node" type="Node" unique_id=859410211]
 
-[node name="EnemySpawner" type="Node" parent="." unique_id=1316386852 node_paths=PackedStringArray("_button", "_Path3DNode")]
+[node name="EnemySpawner" type="Node" parent="." unique_id=1316386852 node_paths=PackedStringArray("_button")]
 script = ExtResource("1_1yxjr")
 _button = NodePath("../Button")
-_Path3DNode = NodePath("../Path3D")
-_Enemy = ExtResource("2_mypmm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=311067057]
 mesh = SubResource("BoxMesh_ui2ko")
