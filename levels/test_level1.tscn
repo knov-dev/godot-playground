@@ -3,27 +3,31 @@
 [ext_resource type="Script" uid="uid://cghm1wvsub12l" path="res://scripts/EnemySpawner.cs" id="1_1yxjr"]
 [ext_resource type="Script" uid="uid://j5kcmwge7tao" path="res://resources/Wave.cs" id="2_x6sav"]
 [ext_resource type="Script" uid="uid://cjfvcgrcvnim6" path="res://resources/EnemySequence.cs" id="3_jhta0"]
-[ext_resource type="Script" uid="uid://dimricnb2jan2" path="res://levels/Path3d.cs" id="3_mypmm"]
 [ext_resource type="Resource" uid="uid://dglav8nbolcne" path="res://resources/Enemy1.tres" id="4_jhta0"]
 [ext_resource type="Resource" uid="uid://6w65ie0cywrt" path="res://resources/Enemy2.tres" id="5_m0b0e"]
+[ext_resource type="ArrayMesh" uid="uid://c51q02qd370r6" path="res://models/Motherboard/tinker.obj" id="6_jhta0"]
 
 [sub_resource type="Resource" id="Resource_42wu5"]
 script = ExtResource("2_x6sav")
 _enemySequence = Array[ExtResource("3_jhta0")]([ExtResource("4_jhta0"), ExtResource("5_m0b0e")])
 metadata/_custom_type_script = "uid://j5kcmwge7tao"
 
-[sub_resource type="BoxMesh" id="BoxMesh_ui2ko"]
-size = Vector3(1, 0.038085938, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ui2ko"]
+height = 0.045904297
+radius = 0.21289063
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwl83"]
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_sebsa"]
+size = Vector3(0.03, 0.05, 0.03)
 
-[sub_resource type="Curve3D" id="Curve3D_1yxjr"]
+[sub_resource type="PrismMesh" id="PrismMesh_ui2ko"]
+size = Vector3(0.03, 0.03, 0.03)
+
+[sub_resource type="Curve3D" id="Curve3D_m0b0e"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.403423, -0.00032043457, -0.4218498, 0, 0, 0, 0, 0, 0, 0.251933, 0.00032913685, -0.42984533, 0, 0, 0, 0, 0, 0, 0.25100854, 0.0003336668, -0.144163, 0, 0, 0, 0, 0, 0, -0.043400526, -3.4689903e-05, -0.14042696, 0, 0, 0, 0, 0, 0, -0.05183384, -4.184246e-05, 0.07585231, 0, 0, 0, 0, 0, 0, 0.2629259, 0.00033783913, 0.08678542, 0, 0, 0, 0, 0, 0, 0.2507336, 0.0002439022, 0.3183728, 0, 0, 0, 0, 0, 0, -0.34848854, -0.00018548965, 0.31294405, 0, 0, 0, 0, 0, 0, -0.34940547, -0.0001603365, -0.19880866),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.193366, 0.0034751892, 15.67625, 0, 0, 0, 0, 0, 0, 9.6733055, -0.007724762, 15.85317, 0, 0, 0, 0, 0, 0, 9.703036, -0.0076141357, 11.557295, 0, 0, 0, 0, 0, 0, -4.426873, 0.0038642883, 11.671221, 0, 0, 0, 0, 0, 0, -4.4475756, 0.0035324097, 6.544835, 0, 0, 0, 0, 0, 0, 7.8787065, -0.0060653687, 6.559738, 0, 0, 0, 0, 0, 0, 7.8700647, -0.0060653687, 9.475441, 0, 0, 0, 0, 0, 0, 16.423744, -0.0132369995, 9.490844, 0, 0, 0, 0, 0, 0, 16.437618, -0.013069153, -9.467614, 0, 0, 0, 0, 0, 0, 6.598632, -0.00522995, -9.285337, 0, 0, 0, 0, 0, 0, 6.6470733, -0.005065918, -6.600689, 0, 0, 0, 0, 0, 0, 8.518511, -0.0070495605, -6.5271397),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 9
+point_count = 12
 
 [node name="Node" type="Node" unique_id=859410211]
 
@@ -34,20 +38,16 @@ _path3DNode = NodePath("../Path3D")
 _timeBetweenEnemies = 0.5
 _enemyWaves = Array[ExtResource("2_x6sav")]([SubResource("Resource_42wu5")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=311067057]
-mesh = SubResource("BoxMesh_ui2ko")
-surface_material_override/0 = SubResource("StandardMaterial3D_kwl83")
+[node name="Tinker" type="MeshInstance3D" parent="." unique_id=780870105]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0)
+mesh = ExtResource("6_jhta0")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=253741219]
-transform = Transform3D(1, 0, 0, 0, 0.9029653, 0.42971346, 0, -0.42971346, 0.9029653, 0, 0.40969414, 0.77623534)
+transform = Transform3D(1, 0, 0, 0, 0.520953, 0.85358536, 0, -0.85358536, 0.520953, 5.959918, 11.866198, 16.51171)
+fov = 100.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=737050948]
-transform = Transform3D(1, 0, 0, 0, 0.5619113, 0.82719755, 0, -0.82719755, 0.5619113, 0, 0.8111023, 0.81911814)
-
-[node name="Path3D" type="Path3D" parent="." unique_id=367987091]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08886105, 0.0473184, 0.07733375)
-curve = SubResource("Curve3D_1yxjr")
-script = ExtResource("3_mypmm")
+transform = Transform3D(1, 0, 0, 0, 0.62711215, 0.778929, 0, -0.778929, 0.62711215, 5.959918, 14.439457, 17.103235)
 
 [node name="Button" type="Button" parent="." unique_id=452410951]
 anchors_preset = -1
@@ -62,5 +62,27 @@ grow_vertical = 0
 action_mode = 0
 text = "Spawn"
 metadata/_edit_use_anchors_ = true
+
+[node name="Turret" type="Node3D" parent="." unique_id=1897172148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23426452, 55.55072, -0.2187523)
+visible = false
+
+[node name="Area3D" type="Area3D" parent="Turret" unique_id=1349514254]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Turret/Area3D" unique_id=459492337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041457515, 0)
+shape = SubResource("CylinderShape3D_ui2ko")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Turret" unique_id=1506363858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0353622, 0)
+mesh = SubResource("BoxMesh_sebsa")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Turret" unique_id=608649591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0041806325, 0)
+mesh = SubResource("PrismMesh_ui2ko")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=418447738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6513443, 0)
+curve = SubResource("Curve3D_m0b0e")
 
 [connection signal="pressed" from="Button" to="EnemySpawner" method="_on_button_pressed"]
