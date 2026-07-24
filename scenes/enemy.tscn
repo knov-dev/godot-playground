@@ -10,7 +10,7 @@ cubic_interp = false
 loop = false
 tilt_enabled = false
 script = ExtResource("1_7p1mj")
-_Speed = 0.25
+_Speed = 0.15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=669937980]
 transform = Transform3D(0.020000001, 5.684342e-14, 0, -5.684342e-14, 0.020000003, 1.4368506e-12, 1.4551915e-11, -2.2013502e-12, 0.020000001, 0, 0.017571196, -1.7464161e-05)
